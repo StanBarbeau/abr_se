@@ -26,6 +26,26 @@ public class ABR {
             this.child_right = null;
             this.value = val;
         }
+
+        public int distTo(Node n)
+        {
+            return (this.value - n.value);
+        }
+
+        public boolean equals (Node n)
+        {
+            return this.value == n.value;
+        }
+
+        public void setValue(int v)
+        {
+            this.value = v;
+        }
+
+        public int getValue()
+        {
+            return this.value;
+        }
     }
 
     /** ABR
@@ -43,17 +63,27 @@ public class ABR {
      */
     public void insert(int nbr)
     {
-        nbrElement += 1;
+
         Node n = new Node(nbr);
 
         if(this.root_ == null)
         {
             this.root_ = n;
+            nbrElement += 1;
         }
-        else
+        else if(!this.contains(nbr))
         {
-            ;
+            Node pN = getParent(n);
+            nbrElement += 1;
 
+            if (pN.distTo(n) < 0)
+            {
+                pN.child_left = n;
+            }
+            else
+            {
+                pN.child_right = n;
+            }
         }
     }
 
@@ -83,7 +113,11 @@ public class ABR {
      */
     public void toList(java.util.List<java.lang.Integer> l)
     {
-
+        l.clear();
+        if(this.root_ != null)
+        {
+            this.recRemplissage(l, this.root_);
+        }
     }
 
     /** containts
@@ -93,6 +127,58 @@ public class ABR {
      */
     public boolean contains(int value)
     {
+        boolean flag = false;
+        Node node = new Node(value);
+        if(this.root_ == null)
+        {
+            flag = true;
+        }
+        else if (this.getParent(node) == null)
+        {
+            flag = true;
+        }
 
+        return flag;
+    }
+
+    private Node getParent(Node p)
+    {
+        assert(p!=null);
+
+        Node nN = root_, pN = null;
+
+        while(nN != null)
+        {
+            pN = nN;
+            if (pN.distTo(p) == 0)
+            {
+                return null;
+            }
+            else if( pN.distTo(p) < 0)
+            {
+                nN = pN.child_left;
+            }
+            else
+            {
+                nN = pN.child_right;
+            }
+        }
+        return pN;
+    }
+
+    private void recRemplissage(java.util.List<java.lang.Integer> l, Node node)
+    {
+        if (node.child_left != null)
+        {
+            recRemplissage(l, node.child_left);
+        }
+        if (node != null)
+        {
+            l.add(node.getValue());
+        }
+        if (node.child_right != null)
+        {
+            recRemplissage(l, node.child_right);
+        }
     }
 }
