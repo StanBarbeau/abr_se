@@ -30,7 +30,7 @@ public class ABR {
 
         public int distTo(Node n)
         {
-            return (this.value - n.value);
+            return (n.getValue() - this.getValue());
         }
 
         public boolean equals (Node n)
