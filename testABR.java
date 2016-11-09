@@ -48,7 +48,7 @@ public class testABR {
         {
             arbre.insert(col.get(i));
         }
-        
+
         ArrayList<Integer> larbre = new ArrayList<Integer>();
         arbre.toList(larbre);
 

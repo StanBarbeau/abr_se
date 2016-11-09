@@ -1,7 +1,8 @@
 package abr_se;
 
 /**
- * Created by Iperi on 09/11/2016.
+ * Created by Stanislas Barbillon on 09/11/2016.
+ * An 'Arbre binaire de Recherche' of integers that contains no duplicate elements.
  */
 public class ABR {
 
@@ -48,8 +49,8 @@ public class ABR {
         }
     }
 
-    /** ABR
-     * constructor.
+    /**
+     * constructor. Generate an empty ABR instance.
      */
     public ABR()
     {
@@ -58,8 +59,8 @@ public class ABR {
     }
 
     /** insert
-     * add a new int in the ABR.
-     * @param nbr , int to put in ABR
+     * add a new int in the ABR, if it is not already present.
+     * @param nbr int to be inserted in ABR
      */
     public void insert(int nbr)
     {
@@ -89,7 +90,7 @@ public class ABR {
 
 
     /** isEmpty
-     * Is ABR empty ?
+     * return true if
      * @return true if ABR is empty, else false.
      */
     public boolean isEmpty()
@@ -98,7 +99,7 @@ public class ABR {
     }
 
     /** nbElement
-     * return the number of elements present in the ABR.
+     * return the number of elements present in this ABR.
      * @return the number of elements
      */
     public int nbElement()
@@ -109,7 +110,7 @@ public class ABR {
 
     /** toList
      * fill a list with value in the ABR.
-     * @param l
+     * @param l the list to fill with this ABR integers.
      */
     public void toList(java.util.List<java.lang.Integer> l)
     {
@@ -120,8 +121,9 @@ public class ABR {
         }
     }
 
-    /** containts
-     * search if a value is in the ABR.
+    /** contains
+     * search if a value is in the ABR. Return true if a value
+     * is in the ABR
      * @param value to test if is in ABR.
      * @return true if value is in the ABR.
      */
