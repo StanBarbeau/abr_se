@@ -43,7 +43,8 @@ public class testABR {
     }
 
     /**
-     * test de toList. Le liste est forcément triée.
+     * test de toList. Le liste est forcément triée et ne contient pas
+     * 2 fois le même élément.
      */
     @Test
     public void testToList()

@@ -133,7 +133,7 @@ public class ABR {
         Node node = new Node(value);
         if(this.root_ == null)
         {
-            flag = true;
+            flag = false;
         }
         else if (this.getParent(node) == null)
         {
